@@ -1,5 +1,4 @@
 module circle_sector(r = 0, d = 0, a = [0, 180]) {
-    echo("r: ", r, " d: ", d, " a: ", a);
     r = max(r, d / 2);
     sector_r = r / cos(180 / $fn);
     step = -360 / $fn;
