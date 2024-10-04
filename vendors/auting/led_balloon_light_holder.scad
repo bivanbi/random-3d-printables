@@ -51,6 +51,4 @@ module led_balloon_light_holder() {
     }
 }
 
-$fn = 100; // TODO remove me before commiting
-//led_balloon_ellypse(d = horizontal_d());
 led_balloon_light_holder();
