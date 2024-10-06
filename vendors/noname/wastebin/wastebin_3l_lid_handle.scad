@@ -2,7 +2,7 @@ use <../../../common/circle_sector.scad>;
 
 function lid_outer_d() = 168.4;
 function lid_inner_d() = 161.8;
-function lid_edge_curviture_d() = 3.34;
+function lid_edge_curviture_d() = 3.5;
 function lid_curviture_clips_wall_thickness() = 1.5;
 function lid_curviture_clips_extrude_angle() = 10;
 function lid_curviture_clips_overhang() = lid_outer_d() - lid_inner_d() + 3;
