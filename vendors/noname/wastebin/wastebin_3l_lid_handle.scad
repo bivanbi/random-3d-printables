@@ -8,7 +8,7 @@ function lid_curviture_clips_extrude_angle() = 10;
 function lid_curviture_clips_overhang() = lid_outer_d() - lid_inner_d() + 3;
 
 function lid_round_edge_wall_thickness() = 2;
-function lid_round_d() = 16;
+function lid_round_d() = 15.35;
 
 module lid_curviture_clips() {
     offset_x = lid_inner_d() / 2 - lid_curviture_clips_wall_thickness();
