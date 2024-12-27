@@ -29,6 +29,7 @@ module stand_foot_arch_half() {
             cylinder(d = stand_wall_thickness(), h = half_section_width);
     }
 }
+
 module stand_foot_arch() {
     half_section_width = (kindle_width() - kindle_bottom_center_cutout_width()) / 2;
 
@@ -38,17 +39,29 @@ module stand_foot_arch() {
     translate([0, 0, right_side_offset_z]) stand_foot_arch_half();
 }
 
+module stand_foot() {
+    union() {
+        cube([stand_foot_depth(), stand_wall_thickness(), kindle_width()]);
+        stand_foot_arch();
+    }
+}
+
+module stand_vertical_support() {
+    union() {
+        cube([stand_wall_thickness(), stand_height(), kindle_width()]);
+        round_top();
+    }
+}
 module round_top() {
     translate([stand_wall_thickness() / 2, stand_height(), 0])
         cylinder(d = stand_wall_thickness(), h = kindle_width());
 
 }
+
 module kindle_simple_stand() {
     union() {
-        round_top();
-        cube([stand_wall_thickness(), stand_height(), kindle_width()]);
-        cube([stand_foot_depth(), stand_wall_thickness(), kindle_width()]);
-        stand_foot_arch();
+        stand_vertical_support();
+        stand_foot();
     }
 }
 
