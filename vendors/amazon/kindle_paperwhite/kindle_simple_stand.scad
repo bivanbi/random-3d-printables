@@ -6,10 +6,12 @@ function kindle_bottom_center_cutout_width() = 50;
 function stand_wall_thickness() = 5;
 function stand_wall_thickness() = 5;
 
-function stand_foot_depth() = 50;
+function stand_foot_depth() = 70;
 function stand_foot_arch_a() = 160;
 function stand_foot_arch_r() = 10;
 function stand_height() = 100;
+
+function stand_vertical_support_offset() = 50; // measured from front
 
 module arch(r = stand_foot_arch_r(), t = stand_wall_thickness(), h = kindle_width(), a = stand_foot_arch_a()) {
        rotate_extrude(angle = a)
@@ -47,6 +49,8 @@ module stand_foot() {
 }
 
 module stand_vertical_support() {
+    offset_x = stand_foot_depth() - stand_vertical_support_offset();
+    translate([offset_x, 0, 0])
     union() {
         cube([stand_wall_thickness(), stand_height(), kindle_width()]);
         round_top();
