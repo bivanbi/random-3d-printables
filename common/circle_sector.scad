@@ -16,4 +16,13 @@ module circle_sector(r = 0, d = 0, a = [0, 180]) {
     }
 }
 
+module half_circle(r = 0, d = 0) {
+    r = max(r, d / 2);
+
+    intersection() {
+        circle(r = r);
+        translate([r, 0]) square(r * 2, center = true);
+    }
+}
+
 circle_sector();
